@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name              V2EX
-// @version           1.0.0
+// @version           1.0.1
 // @author            Tienuon
-// @loginURL          https://v2ex.com/signin
+// @loginURL          https://www.v2ex.com/signin
 // @expire            900000
-// @domain            v2ex.com
+// @domain            www.v2ex.com
 // ==/UserScript==
 
 let run = async function (param) {
