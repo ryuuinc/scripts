@@ -16,7 +16,7 @@ let run = async function (param) {
     throw '需要登录';
   }
   if (/每日登录奖励已领取/.test(resp.data)) {
-    return '重复签到';
+    return '签过了';
   }
   var once = /redeem\?once=(.*?)'/.exec(resp.data);
   if (!once) {
@@ -32,7 +32,7 @@ let run = async function (param) {
     if (reward) {
       return `签到奖励: ${reward[1]} 铜币`;
     } else {
-      return '成功签到';
+      return '签好了';
     }
   } else {
     throw '无法确认签到结果';

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name              N3RO
-// @version           1.0.0
+// @version           1.0.1
 // @author            Tienuon
 // @loginURL          https://n3ro.lol/auth/login
 // @expire            900000
@@ -10,9 +10,9 @@
 let run = async function (param) {
   var { data } = await axios.post('https://n3ro.lol/user/checkin');
   if (/获得了/.test(data.msg)) {
-    return '签到成功';
+    return '签好了';
   } else if (/您似乎已经签到过了/.test(data.msg)) {
-    return '已经签到';
+    return '签过了';
   } else {
     throw '签到失败';
   }
