@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name              N3RO
-// @version           1.0.1
+// @version           1.0.2
 // @author            Tienuon
 // @loginURL          https://n3ro.lol/auth/login
 // @expire            900000
@@ -8,11 +8,18 @@
 // ==/UserScript==
 
 let run = async function (param) {
-  var { data } = await axios.post('https://n3ro.lol/user/checkin');
-  if (/获得了/.test(data.msg)) {
-    return '签好了';
-  } else if (/您似乎已经签到过了/.test(data.msg)) {
+  var { data } = await axios.get('https://n3ro.lol/user');
+  if (/Sign/.test(data)) {
+    throw '需要登录';
+  }
+  if (/您今日已签到/.test(data)) {
     return '签过了';
+  }
+  var { data } = await axios.post('https://n3ro.lol/user/checkin');
+  if (/您似乎已经签到过了/.test(data.msg)) {
+    return '签过了';
+  } else if (/获得了/.test(data.msg)) {
+    return '签好了';
   } else {
     throw '签到失败';
   }
@@ -20,7 +27,7 @@ let run = async function (param) {
 
 let check = async function (param) {
   var { data } = await axios.get('https://n3ro.lol/user');
-  return /用户中心/.test(data);
+  return !/Sign/.test(data);
 };
 
 module.exports = { run, check };
