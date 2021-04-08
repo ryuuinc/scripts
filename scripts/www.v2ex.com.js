@@ -20,9 +20,9 @@ let run = async function (param) {
     throw '未找到 once';
   }
   var { data } = await axios.get(`https://www.v2ex.com/mission/daily/redeem?once=${once[1]}`);
-  if (/请重新点击一次以领取每日登录奖励/.test(resp1.data)) {
+  if (/请重新点击一次以领取每日登录奖励/.test(data)) {
     throw '请重新签到';
-  } else if (/每日登录奖励已领取/.test(resp1.data)) {
+  } else if (/每日登录奖励已领取/.test(data)) {
     return '签好了';
   } else {
     throw '签到失败';
