@@ -30,7 +30,7 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  var { data } = await axios.get('https://www.v2ex.com/t/718092');
+  var { data } = await axios.get('https://www.v2ex.com/t/68631');
   return !/现在注册/.test(data);
 };
 

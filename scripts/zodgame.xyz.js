@@ -9,7 +9,7 @@
 
 let run = async function (param) {
   var { data } = await axios.get('https://zodgame.xyz/plugin.php?id=dsu_paulsign:sign');
-  if (/注册/.test(data)) {
+  if (/注册帐号/.test(data)) {
     throw '需要登录';
   }
   if (/已经签到/.test(data)) {
@@ -34,8 +34,8 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  var { data } = await axios.get('https://zodgame.xyz/plugin.php?id=dsu_paulsign:sign');
-  return !/注册/.test(data);
+  var { data } = await axios.get('https://zodgame.xyz/forum.php?mod=viewthread&tid=251084');
+  return !/注册帐号/.test(data);
 };
 
 module.exports = { run, check };
