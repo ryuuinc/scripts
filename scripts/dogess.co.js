@@ -9,7 +9,7 @@
 
 let run = async function (param) {
   var { data } = await axios.get('https://dogess.co/user');
-  if (/登录/.test(data)) {
+  if (/登录用户中心/.test(data)) {
     throw '需要登录';
   }
   if (/您今日已签到/.test(data)) {
@@ -27,7 +27,7 @@ let run = async function (param) {
 
 let check = async function (param) {
   var { data } = await axios.get('https://dogess.co/user');
-  return !/登录/.test(data);
+  return !/登录用户中心/.test(data);
 };
 
 module.exports = { run, check };
