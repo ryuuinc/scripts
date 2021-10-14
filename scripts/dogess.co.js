@@ -10,18 +10,18 @@
 let run = async function (param) {
   var { data } = await axios.get('https://dogess.co/user');
   if (/登录用户中心/.test(data)) {
-    throw '需要登录';
+    throw '需要登录！';
   }
   if (/您今日已签到/.test(data)) {
-    return '签过了';
+    return '已经签过了！';
   }
   var { data } = await axios.post('https://dogess.co/user/checkin');
   if (/您似乎已经签到过了/.test(data.msg)) {
-    return '签过了';
+    return '已经签过了！';
   } else if (/获得了/.test(data.msg)) {
-    return '签好了';
+    return '签到成功！';
   } else {
-    throw '签到失败';
+    throw '签到失败！';
   }
 };
 
