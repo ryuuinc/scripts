@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name              ZodGame
-// @version           1.0.3
+// @version           1.0.4
 // @author            Tienuon
 // @loginURL          https://zodgame.xyz/member.php?mod=logging&action=login&referer=https%3A%2F%2Fzodgame.xyz%2Findex.php
 // @expire            900000
@@ -10,10 +10,10 @@
 let run = async function (param) {
   var { data } = await axios.get('https://zodgame.xyz/plugin.php?id=dsu_paulsign:sign');
   if (/注册帐号/.test(data)) {
-    throw '需要登录！';
+    throw '需要登录';
   }
   if (/已经签到/.test(data)) {
-    return '已经签过了！';
+    return '已签到';
   }
   var hideform = /name="formhash" value="([^"]+)/.exec(data);
   if (!hideform) {
@@ -25,11 +25,11 @@ let run = async function (param) {
     `formhash=${formhash}&qdxq=kx`
   );
   if (/已经签到/.test(data)) {
-    return '已经签过了！';
+    return '已签到';
   } else if (/签到成功/.test(data)) {
-    return '签到成功！';
+    return '签到成功';
   } else {
-    throw '签到失败！';
+    throw '签到失败';
   }
 };
 
