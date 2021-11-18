@@ -1,4 +1,4 @@
-# soulsign-scripts
+# scripts
 
 ## 介绍
 
