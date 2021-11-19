@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DogeSS 签到
 // @namespace    https://github.com/ryuuinc/scripts
-// @version      0.1
+// @version      0.2
 // @description  用来给 DogeSS 签到的脚本
 // @author       Tienuon
 // @include      *
@@ -17,7 +17,7 @@
 
   const storageKey = 'dogess_last_sign_timestamp';
   const lastSignNumberOfDay = GM_getValue(storageKey);
-  const currentNumberOfDay = Math.floor(new Date().valueOf() / 1000 / 60 / 60 / 24);
+  const currentNumberOfDay = new Date(+new Date() - 8 * 60 * 60 * 1000).getDate();
 
   if (currentNumberOfDay !== lastSignNumberOfDay) {
     GM_xmlhttpRequest({
