@@ -4,7 +4,7 @@
 // @version      0.2
 // @description  用来给 DogeSS 签到的脚本
 // @author       Tienuon
-// @include      *
+// @match        *://dogess.co/*
 // @run-at       document-start
 // @grant        GM_getValue
 // @grant        GM_setValue
