@@ -2,20 +2,20 @@
 // @name              DOGESS
 // @version           1.0.4
 // @author            Tienuon
-// @loginURL          https://dogess.co/auth/login
+// @loginURL          https://dogess.work/auth/login
 // @expire            900000
-// @domain            dogess.co
+// @domain            dogess.work
 // ==/UserScript==
 
 let run = async function (param) {
-  var { data } = await axios.get('https://dogess.co/user');
+  var { data } = await axios.get('https://dogess.work/user');
   if (/登录用户中心/.test(data)) {
     throw '需要登录';
   }
   if (/您今日已签到/.test(data)) {
     return '已签到';
   }
-  var { data } = await axios.post('https://dogess.co/user/checkin');
+  var { data } = await axios.post('https://dogess.work/user/checkin');
   if (/您似乎已经签到过了/.test(data.msg)) {
     return '已签到';
   } else if (/获得了/.test(data.msg)) {
@@ -26,7 +26,7 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  var { data } = await axios.get('https://dogess.co/user');
+  var { data } = await axios.get('https://dogess.work/user');
   return !/登录用户中心/.test(data);
 };
 
