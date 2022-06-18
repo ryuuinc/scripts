@@ -4,7 +4,7 @@
 // @version      0.2
 // @description  用来给 DogeSS 签到的脚本
 // @author       Tienuon
-// @match        *://dogess.work/*
+// @match        *://dogess.one/*
 // @run-at       document-start
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -21,7 +21,7 @@
 
   if (currentNumberOfDay !== lastSignNumberOfDay) {
     GM_xmlhttpRequest({
-      url: 'https://dogess.work/user/checkin',
+      url: 'https://dogess.one/user/checkin',
       method: 'POST',
       responseType: 'json',
       onload(response) {
